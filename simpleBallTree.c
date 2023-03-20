@@ -3,8 +3,8 @@
 #include <math.h>
 
 
-#define DIM 2 // dimensionality of data points
-#define MAX_POINTS 100 // maximum number of data points
+#define DIM 5 // dimensionality of data points
+#define MAX_POINTS 273 // maximum number of data points ()
 
 typedef struct point_t {
     double x[DIM];
@@ -91,7 +91,7 @@ void search_node(node_t *root, point_t *p, int *count) {
 
 int main(){
     // create a sample dataset
-    DataPoint data[] = {
+    point_t *p[] = {
         {{0.5, 0.2, 0.3, 0.4, 0.1}, 1},
         {{0.2, 0.4, 0.1, 0.5, 0.3}, 2},
         {{0.1, 0.3, 0.4, 0.2, 0.5}, 3},
@@ -109,7 +109,7 @@ int main(){
 
     // search for the nearest neighbor for a given query point
     DataPoint query = {{0.2, 0.3, 0.4, 0.5, 0.1}, -1};
-    DataPoint *nearest_neighbor = search(root, &query);
+    DataPoint *search_node = search(root, &query);
 
     // print the label of the nearest neighbor
     printf("The label of the nearest neighbor is %d\n", nearest_neighbor->label);
